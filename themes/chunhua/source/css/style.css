@@ -405,8 +405,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .post-hero-shade {
   position: absolute; inset: 0;
   background:
-    radial-gradient(90% 80% at 20% 20%, rgba(42, 26, 32, .18), rgba(42, 26, 32, .55) 80%),
-    linear-gradient(180deg, rgba(42, 26, 32, .28), rgba(42, 26, 32, .78));
+    linear-gradient(90deg, rgba(42, 26, 32, .86) 0%, rgba(42, 26, 32, .62) 38%, rgba(42, 26, 32, .26) 72%, rgba(42, 26, 32, .16) 100%),
+    linear-gradient(180deg, rgba(42, 26, 32, .10), rgba(42, 26, 32, .42));
 }
 .post-hero-inner { position: absolute; left: 0; right: 0; bottom: 0; padding-bottom: 96px; color: #fff; }
 .post-kicker {
