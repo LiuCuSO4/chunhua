@@ -1,0 +1,70 @@
+# 站点
+title: 椿华动漫社
+subtitle: 以热爱为名，记录每一次相遇
+description: 椿华动漫社的官方站点，收录社团动态、作品与投稿指南。
+keywords: 椿华动漫社, 动漫社, ACG, 宅舞, cosplay
+author: 椿华动漫社
+language: zh-CN
+timezone: Asia/Shanghai
+
+# 网址
+url: https://liucuso4.github.io
+root: /chunhua/
+permalink: posts/:title/
+permalink_defaults:
+
+# 目录
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# 写作
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: false
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+
+# 首页
+index_generator:
+  path: ''
+  per_page: 9
+  order_by: -date
+
+default_category: 动态
+category_map:
+tag_map:
+
+# 日期
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: date
+
+# 分页
+per_page: 10
+pagination_dir: page
+
+# 主题
+theme: chunhua
+
+deploy:
+  type: ''

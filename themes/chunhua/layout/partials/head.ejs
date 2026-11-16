@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <%
+    var pageTitle = page.title ? page.title + ' · ' + config.title : config.title;
+    var desc = page.description;
+    if (!desc && page.layout === 'post' && page.excerpt) desc = plain(page.excerpt);
+    if (!desc) desc = config.description;
+    if (desc && desc.length > 110) desc = desc.slice(0, 110) + '…';
+    var ogImage = page.cover || (theme.hero && theme.hero.image) || '/img/cover-intro.jpg';
+  %>
+  <title><%= pageTitle %></title>
+  <meta name="description" content="<%= desc %>">
+  <meta name="theme-color" content="#C9314B">
+  <link rel="icon" href="<%- url_for('/img/favicon.png') %>">
+  <link rel="apple-touch-icon" href="<%- url_for('/img/avatar.png') %>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= pageTitle %>">
+  <meta property="og:description" content="<%= desc %>">
+  <meta property="og:image" content="<%- url_for(ogImage) %>">
+  <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
+</head>

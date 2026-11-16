@@ -1,0 +1,21 @@
+<article class="card<%= (typeof featured !== 'undefined' && featured) ? ' card-featured' : '' %>">
+  <a class="card-media" href="<%- url_for(post.path) %>" aria-label="<%= post.title %>">
+    <img src="<%- url_for(cover_of(post)) %>" alt="" loading="lazy">
+    <% if (post.top) { %><span class="pin-badge"><%- icon('pin') %>置顶</span><% } %>
+    <span class="card-date"><%= date(post.date, 'MM.DD') %></span>
+  </a>
+  <div class="card-body">
+    <div class="card-meta">
+      <span><%= date(post.date, 'YYYY 年 MM 月 DD 日') %></span>
+      <% if (post.categories && post.categories.length) { %><i></i><span><%= post.categories.first().name %></span><% } %>
+    </div>
+    <h3 class="card-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+    <p class="card-desc"><%= excerpt_of(post, (typeof featured !== 'undefined' && featured) ? 160 : 80) %></p>
+    <div class="card-foot">
+      <span class="card-tags">
+        <% (post.tags || []).forEach(function (t) { %><span class="tag">#<%= t.name %></span><% }); %>
+      </span>
+      <span class="card-more">阅读<%- icon('arrow') %></span>
+    </div>
+  </div>
+</article>

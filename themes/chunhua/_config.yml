@@ -1,0 +1,50 @@
+# ===== 品牌 =====
+brand:
+  name: 椿华动漫社
+  en: CHUNHUA ANIME CLUB
+  slogan: 以热爱为名，记录每一次相遇
+
+# ===== 导航 =====
+menu:
+  - name: 首页
+    url: /
+  - name: 动态
+    url: /archives/
+  - name: 关于
+    url: /about/
+  - name: 投稿
+    url: /join/
+
+# ===== 频道 =====
+# 以后开通新平台，在这里加一条即可（icon 可选：bilibili / weibo / douyin / xiaohongshu / qq / mail / link）
+channels:
+  - name: 哔哩哔哩
+    handle: 椿华动漫社
+    desc: 活动记录与视频投稿
+    url: https://space.bilibili.com/3747582505388978
+    icon: bilibili
+    color: '#00a1d6'
+
+# 是否显示「更多平台」占位卡
+channel_more: true
+channel_more_text: 更多平台
+channel_more_desc: 陆续开通中
+
+# ===== 首页 =====
+hero:
+  image: /img/hero-mascot.png
+  eyebrow: CAMELLIA · ANIME CLUB
+  title: 椿华动漫社
+  subtitle: 以热爱为名，记录每一次相遇
+  lead: 宅舞、cosplay、游戏、音游、卡牌——把每一次相聚，都留在这里。
+  primary:
+    text: 看看我们在做什么
+    url: /archives/
+  secondary:
+    text: 了解社团
+    url: /about/
+
+# ===== 页脚 =====
+footer:
+  since: 2026
+  text: 椿华动漫社

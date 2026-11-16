@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- partial('partials/head') %>
+<body class="page-<%= page.layout || 'index' %>">
+  <div class="petal-field" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <%- partial('partials/nav') %>
+  <main class="site-main">
+    <%- body %>
+  </main>
+  <%- partial('partials/footer') %>
+  <script src="<%- url_for('/js/main.js') %>" defer></script>
+</body>
+</html>

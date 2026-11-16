@@ -1,0 +1,48 @@
+<%- partial('partials/hero') %>
+<%- partial('partials/channels') %>
+
+<%
+  var all = page.posts ? page.posts.toArray() : [];
+  var pinned = all.filter(function (p) { return p.top; });
+  var rest = all.filter(function (p) { return !p.top; });
+%>
+
+<section class="latest" id="latest">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-main">
+        <p class="sec-en">LATEST</p>
+        <h2 class="sec-title">最新动态</h2>
+      </div>
+      <a class="sec-more" href="<%- url_for('/archives/') %>">全部动态<%- icon('arrow') %></a>
+    </div>
+
+    <% if (pinned.length) { %>
+      <div class="pinned-list">
+        <% pinned.forEach(function (p) { %>
+          <%- partial('partials/post-card', { post: p, featured: true }) %>
+        <% }); %>
+      </div>
+    <% } %>
+
+    <% if (rest.length) { %>
+      <div class="post-grid">
+        <% rest.forEach(function (p) { %>
+          <%- partial('partials/post-card', { post: p }) %>
+        <% }); %>
+      </div>
+    <% } %>
+
+    <% if (!all.length) { %>
+      <p class="empty">这里还很安静。</p>
+    <% } %>
+
+    <% if (page.total > 1) { %>
+      <nav class="pager">
+        <% if (page.prev) { %><a class="pager-btn" href="<%- url_for(page.prev_link) %>">上一页</a><% } else { %><span class="pager-btn is-off">上一页</span><% } %>
+        <span class="pager-num"><%= page.current %> <i>/</i> <%= page.total %></span>
+        <% if (page.next) { %><a class="pager-btn" href="<%- url_for(page.next_link) %>">下一页</a><% } else { %><span class="pager-btn is-off">下一页</span><% } %>
+      </nav>
+    <% } %>
+  </div>
+</section>

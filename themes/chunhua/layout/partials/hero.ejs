@@ -1,0 +1,25 @@
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><i></i><%= theme.hero.eyebrow %></p>
+      <h1 class="hero-title"><%= theme.hero.title %></h1>
+      <p class="hero-sub"><%= theme.hero.subtitle %></p>
+      <p class="hero-lead"><%= theme.hero.lead %></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="<%- url_for(theme.hero.primary.url) %>">
+          <%= theme.hero.primary.text %><%- icon('arrow') %>
+        </a>
+        <a class="btn btn-ghost" href="<%- url_for(theme.hero.secondary.url) %>">
+          <%= theme.hero.secondary.text %>
+        </a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <span class="hero-disc" aria-hidden="true"></span>
+      <img src="<%- url_for(theme.hero.image) %>" alt="<%= theme.brand.name %>社娘" fetchpriority="high">
+      <span class="hero-tag" aria-hidden="true">CAMELLIA</span>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#channels" aria-label="向下浏览"><span></span></a>
+</section>

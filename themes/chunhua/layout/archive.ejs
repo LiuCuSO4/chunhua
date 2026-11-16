@@ -1,0 +1,35 @@
+<section class="page-hero is-small">
+  <div class="page-hero-deco" aria-hidden="true">椿</div>
+  <div class="wrap page-hero-inner">
+    <p class="sec-en">ARCHIVE</p>
+    <h1>全部动态</h1>
+    <p class="page-desc">共 <%= page.posts.length %> 篇，按时间排列。</p>
+  </div>
+</section>
+
+<%
+  var years = {};
+  page.posts.each(function (p) {
+    var y = p.date.year();
+    (years[y] = years[y] || []).push(p);
+  });
+  var yearKeys = Object.keys(years).sort().reverse();
+%>
+
+<div class="wrap archive">
+  <% yearKeys.forEach(function (y) { %>
+    <section class="year-block">
+      <h2 class="year-title"><span><%= y %></span><em><%= years[y].length %> 篇</em></h2>
+      <div class="year-list">
+        <% years[y].forEach(function (p) { %>
+          <a class="archive-item" href="<%- url_for(p.path) %>">
+            <time><%= date(p.date, 'MM.DD') %></time>
+            <span class="archive-title"><%= p.title %></span>
+            <% if (p.categories && p.categories.length) { %><span class="archive-cat"><%= p.categories.first().name %></span><% } %>
+            <% if (p.top) { %><span class="pin-mini">置顶</span><% } %>
+          </a>
+        <% }); %>
+      </div>
+    </section>
+  <% }); %>
+</div>

@@ -1,0 +1,14 @@
+<section class="page-hero is-small">
+  <div class="page-hero-deco" aria-hidden="true">椿</div>
+  <div class="wrap page-hero-inner">
+    <p class="sec-en">CATEGORY</p>
+    <h1><%= page.category %></h1>
+    <p class="page-desc">共 <%= page.posts.length %> 篇相关内容。</p>
+  </div>
+</section>
+
+<div class="wrap tag-list">
+  <% page.posts.each(function (p) { %>
+    <%- partial('partials/post-card', { post: p }) %>
+  <% }); %>
+</div>

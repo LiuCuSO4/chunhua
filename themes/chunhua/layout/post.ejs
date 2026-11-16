@@ -1,0 +1,51 @@
+<%
+  var readMin = Math.max(1, Math.round(plain(page.content).length / 400));
+  var cat = page.categories && page.categories.length ? page.categories.first() : null;
+%>
+<article class="post">
+  <header class="post-hero">
+    <div class="post-hero-bg" style="background-image:url('<%- url_for(page.top_img || cover_of(page)) %>')"></div>
+    <div class="post-hero-shade"></div>
+    <div class="wrap post-hero-inner">
+      <div class="post-kicker">
+        <% if (cat) { %><a href="<%- url_for(cat.path) %>"><%= cat.name %></a><% } %>
+        <time datetime="<%= date_xml(page.date) %>"><%= date(page.date, 'YYYY.MM.DD') %></time>
+        <span><%= readMin %> 分钟</span>
+      </div>
+      <h1 class="post-title"><%= page.title %></h1>
+      <% if (page.description) { %><p class="post-sub"><%= page.description %></p><% } %>
+    </div>
+  </header>
+
+  <div class="wrap post-layout">
+    <div class="post-card">
+      <div class="post-body markdown">
+        <%- page.content %>
+      </div>
+
+      <div class="post-end">
+        <span class="post-end-mark" aria-hidden="true">椿</span>
+        <div class="post-tags">
+          <% (page.tags || []).forEach(function (t) { %>
+            <a class="tag" href="<%- url_for(t.path) %>">#<%= t.name %></a>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="wrap post-nav">
+    <% if (page.prev) { %>
+      <a class="post-nav-item is-prev" href="<%- url_for(page.prev.path) %>">
+        <span class="post-nav-label">上一篇</span>
+        <span class="post-nav-title"><%= page.prev.title %></span>
+      </a>
+    <% } else { %><span></span><% } %>
+    <% if (page.next) { %>
+      <a class="post-nav-item is-next" href="<%- url_for(page.next.path) %>">
+        <span class="post-nav-label">下一篇</span>
+        <span class="post-nav-title"><%= page.next.title %></span>
+      </a>
+    <% } %>
+  </nav>
+</article>

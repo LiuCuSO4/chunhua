@@ -1,0 +1,35 @@
+<section class="channels" id="channels">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-main">
+        <p class="sec-en">FIND US</p>
+        <h2 class="sec-title">在这些地方找到我们</h2>
+      </div>
+      <p class="sec-note">视频、活动、日常，都在这里更新。</p>
+    </div>
+
+    <div class="channel-grid">
+      <% (theme.channels || []).forEach(function (ch) { %>
+        <a class="channel-card" href="<%= ch.url %>" target="_blank" rel="noopener" style="--ch:<%= ch.color || '#C9314B' %>">
+          <span class="channel-icon"><%- icon(ch.icon) %></span>
+          <span class="channel-body">
+            <span class="channel-name"><%= ch.name %></span>
+            <span class="channel-handle">@<%= ch.handle %></span>
+            <span class="channel-desc"><%= ch.desc %></span>
+          </span>
+          <span class="channel-go"><%- icon('arrow') %></span>
+        </a>
+      <% }); %>
+
+      <% if (theme.channel_more) { %>
+        <div class="channel-card channel-more">
+          <span class="channel-icon"><%- icon('plus') %></span>
+          <span class="channel-body">
+            <span class="channel-name"><%= theme.channel_more_text %></span>
+            <span class="channel-desc"><%= theme.channel_more_desc %></span>
+          </span>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>

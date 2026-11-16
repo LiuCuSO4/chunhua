@@ -1,0 +1,29 @@
+<footer class="footer">
+  <span class="footer-mark" aria-hidden="true">椿</span>
+  <div class="wrap footer-inner">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img src="<%- url_for('/img/avatar.png') %>" alt="">
+        <div>
+          <strong><%= theme.brand.name %></strong>
+          <p><%= theme.brand.slogan %></p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <% (theme.channels || []).forEach(function (ch) { %>
+          <a href="<%= ch.url %>" target="_blank" rel="noopener">
+            <%- icon(ch.icon) %><span><%= ch.name %></span>
+          </a>
+        <% }); %>
+        <% theme.menu.forEach(function (item) { %>
+          <a href="<%- url_for(item.url) %>"><span><%= item.name %></span></a>
+        <% }); %>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <%= new Date().getFullYear() %> <%= theme.footer.text || theme.brand.name %></p>
+      <p class="footer-en"><%= theme.brand.en %></p>
+    </div>
+  </div>
+  <button class="to-top" id="toTop" aria-label="回到顶部"><%- icon('top') %></button>
+</footer>
