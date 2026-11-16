@@ -46,6 +46,7 @@ try {
 
   if (watch.status === 0) {
     console.log('\n发布完成：' + SITE);
+    process.exit(0);
   } else {
     console.log('\n构建失败，查看日志：https://github.com/' + REPO + '/actions/runs/' + runId);
     process.exit(1);
