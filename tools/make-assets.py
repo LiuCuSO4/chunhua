@@ -17,6 +17,7 @@ h = 1200
 w = round(cutout.width * h / cutout.height)
 hero = cutout.resize((w, h), Image.LANCZOS)
 hero.save(os.path.join(OUT, 'hero-mascot.png'), optimize=True)
+hero.save(os.path.join(OUT, 'hero-mascot.webp'), 'WEBP', quality=86, method=6)
 
 full = Image.open(os.path.join(SRC, '椿华娘抠图.PNG')).convert('RGBA')
 full = trim(full)
@@ -24,6 +25,7 @@ h2 = 1400
 w2 = round(full.width * h2 / full.height)
 full_s = full.resize((w2, h2), Image.LANCZOS)
 full_s.save(os.path.join(OUT, 'mascot.png'), optimize=True)
+full_s.save(os.path.join(OUT, 'mascot.webp'), 'WEBP', quality=86, method=6)
 
 # ---------- 头像 ----------
 head = full.crop((int(full.width * 0.30), 0, int(full.width * 0.72), int(full.height * 0.20)))
@@ -33,6 +35,7 @@ canvas = Image.new('RGBA', (side, side), (0, 0, 0, 0))
 canvas.paste(head, ((side - head.width) // 2, (side - head.height) // 2), head)
 avatar = canvas.resize((320, 320), Image.LANCZOS)
 avatar.save(os.path.join(OUT, 'avatar.png'), optimize=True)
+avatar.save(os.path.join(OUT, 'avatar.webp'), 'WEBP', quality=86, method=6)
 avatar.resize((64, 64), Image.LANCZOS).save(os.path.join(OUT, 'favicon.png'), optimize=True)
 
 # ---------- 封面 ----------

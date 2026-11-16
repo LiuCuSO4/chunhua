@@ -233,7 +233,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .hero-art { position: relative; display: flex; justify-content: center; align-items: flex-end; }
 .hero-art img {
-  position: relative; z-index: 2; width: auto; max-height: 76vh;
+  position: relative; z-index: 2; width: min(100%, 44vw); height: auto; max-height: 72vh;
   filter: drop-shadow(0 34px 50px rgba(110, 21, 38, .22));
   -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
   mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
@@ -620,7 +620,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hero-inner { grid-template-columns: 1fr; gap: 8px; }
   .hero-copy { max-width: none; order: 2; }
   .hero-art { order: 1; }
-  .hero-art img { max-height: 52vh; }
+  .hero-art img { width: min(100%, 70vw); max-height: 52vh; }
   .hero-disc { width: 62%; bottom: 4%; }
   .scroll-cue { display: none; }
 
